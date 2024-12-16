@@ -1,0 +1,13 @@
+name: 'Diploi Component Metadata Action'
+description: 'An action that collects component metadata from a Diploi stack'
+branding:
+  icon: 'package'
+  color: 'purple'
+
+outputs:
+  components:
+    description: 'List of components (identifier, name, folder, stage, ref) that need to be built'
+
+runs:
+  using: 'node20'
+  main: 'index.js'
