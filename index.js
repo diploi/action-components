@@ -29,7 +29,7 @@ try {
     if (isDevImageAvailable) {
       componentsOutput.push({
         ...componentOutput,
-        name: `${componentOutput} Dev`,
+        name: `${componentOutput.name} Dev`,
         dockerfile: 'Dockerfile.dev',
         suffix: '.dev',
       });
