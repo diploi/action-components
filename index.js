@@ -20,8 +20,7 @@ try {
       identifier: component.identifier,
       name: component.name || component.identifier,
       folder: component.identifier,
-      suffix: isDevImageAvailable ? undefined : '.dev',
-      ref: component.package.split('#').pop(),
+      type: isDevImageAvailable ? 'main' : 'main-dev',
     };
 
     componentsOutput.push(componentOutput);
@@ -30,8 +29,7 @@ try {
       componentsOutput.push({
         ...componentOutput,
         name: `${componentOutput.name} Dev`,
-        dockerfile: 'Dockerfile.dev',
-        suffix: '.dev',
+        type: 'dev',
       });
     }
   }
