@@ -14,19 +14,23 @@ try {
       );
     }
 
+    const isDevImageAvailable = fs.existsSync(path.join(component.identifier, 'Dockerfile.dev'));
+
     const componentOutput = {
       identifier: component.identifier,
       name: component.name || component.identifier,
       folder: component.identifier,
+      prefix: isDevImageAvailable ? '.dev' : undefined,
       ref: component.package.split('#').pop(),
     };
 
     componentsOutput.push(componentOutput);
 
-    if (fs.existsSync(path.join(component.identifier, 'Dockerfile.dev'))) {
+    if (isDevImageAvailable) {
       componentsOutput.push({
         ...componentOutput,
-        stage: 'dev',
+        dockerfile: 'Dockerfile.dev',
+        prefix: '.dev',
       });
     }
   }
