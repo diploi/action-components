@@ -20,7 +20,7 @@ try {
       identifier: component.identifier,
       name: component.name || component.identifier,
       folder: component.identifier,
-      suffix: isDevImageAvailable ? '.dev' : undefined,
+      suffix: isDevImageAvailable ? undefined : '.dev',
       ref: component.package.split('#').pop(),
     };
 
