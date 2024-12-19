@@ -20,7 +20,7 @@ try {
       identifier: component.identifier,
       name: component.name || component.identifier,
       folder: component.identifier,
-      prefix: isDevImageAvailable ? '.dev' : undefined,
+      suffix: isDevImageAvailable ? '.dev' : undefined,
       ref: component.package.split('#').pop(),
     };
 
@@ -31,7 +31,7 @@ try {
         ...componentOutput,
         name: `${componentOutput} Dev`,
         dockerfile: 'Dockerfile.dev',
-        prefix: '.dev',
+        suffix: '.dev',
       });
     }
   }
