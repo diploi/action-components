@@ -6,7 +6,7 @@ branding:
 
 outputs:
   components:
-    description: 'List of components (identifier, name, folder, dockerfile, prefix, ref) that need to be built'
+    description: 'List of components (identifier, name, folder, dockerfile, suffix, ref) that need to be built'
 
 runs:
   using: 'node20'
