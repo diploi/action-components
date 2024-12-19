@@ -29,6 +29,7 @@ try {
     if (isDevImageAvailable) {
       componentsOutput.push({
         ...componentOutput,
+        name: `${componentOutput} Dev`,
         dockerfile: 'Dockerfile.dev',
         prefix: '.dev',
       });
