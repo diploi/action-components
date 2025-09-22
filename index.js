@@ -41,6 +41,7 @@ try {
     }
   }
 
+  core.info(JSON.stringify(componentsOutput));
   core.setOutput('components', JSON.stringify(componentsOutput));
 } catch (error) {
   core.setFailed(error.message);
