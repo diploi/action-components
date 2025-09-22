@@ -13,9 +13,9 @@ try {
       folder = folder.substring(1);
     }
 
-    if (!fs.existsSync(folder)) {
+    if (folder !== '' && !fs.existsSync(folder)) {
       throw new Error(
-        `Folder ${folder} for the ${component.identifier} component is missing.`
+        `Folder "${folder}" for the ${component.identifier} component is missing.`
       );
     }
 
