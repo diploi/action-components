@@ -9,11 +9,14 @@ try {
 
   for (const component of config.components) {
     let folder = component.folder || component.identifier;
+    if (folder === '/') {
+      folder = '.';
+    }
     if (folder.startsWith('/')) {
       folder = folder.substring(1);
     }
 
-    if (folder !== '' && !fs.existsSync(folder)) {
+    if (!fs.existsSync(folder)) {
       throw new Error(
         `Folder "${folder}" for the ${component.identifier} component is missing.`
       );
