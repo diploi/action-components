@@ -8,18 +8,25 @@ try {
   const componentsOutput = [];
 
   for (const component of config.components) {
-    if (!fs.existsSync(component.identifier)) {
+    let folder = component.folder || component.identifier;
+    if (folder.startsWith('/')) {
+      folder = folder.substring(1);
+    }
+
+    if (!fs.existsSync(folder)) {
       throw new Error(
-        `Folder /${component.identifier} for the ${component.identifier} component is missing.`
+        `Folder ${folder} for the ${component.identifier} component is missing.`
       );
     }
 
-    const isDevImageAvailable = fs.existsSync(path.join(component.identifier, 'Dockerfile.dev'));
+    const isDevImageAvailable = fs.existsSync(
+      path.join(folder, 'Dockerfile.dev')
+    );
 
     const componentOutput = {
       identifier: component.identifier,
       name: component.name || component.identifier,
-      folder: component.identifier,
+      folder,
       type: isDevImageAvailable ? 'main' : 'main-dev',
     };
 
